@@ -2,8 +2,6 @@
 const mongoose = require("mongoose");
 
 //Establishing Connection With MongoDB.
-mongoose.connect("mongodb://127.0.0.1:27017/test");
-
 main()
 .then(() => {
     console.log("Success");
@@ -59,7 +57,36 @@ const User = mongoose.model("User" , userSchema);
 // })
 
 
-User.find( {age : { $gte : 47} })
+User.find( {age : { $lte : 47} })
 .then((res) => {
     console.log(res[0].name);
 })
+
+// User.updateOne( {name:"Muskan"},{age:22} )
+// .then((res) => {console.log(res)})
+// .catch((err) => {console.log(err)});
+
+
+// User.findOneAndUpdate({name:"Adam"},{age:50})
+// .then((res) => {console.log(res)})
+// .catch((err) => {console.log(err)});
+
+// User.findOneAndUpdate({name:"Adam"},{age:60},{new:true})
+// .then((res) => {console.log(res)})
+// .catch((err) => {console.log(err)});
+
+
+// User.findByIdAndUpdate(('67c864d6b124ca56cb3e599d'),{age:21},{new:true})
+// .then((res) => {console.log(res)})
+// .catch((err) => {console.log(err)});
+
+// User.deleteOne({name:"Adam"})
+// .then( (res) => {
+//     console.log(res)
+// });
+
+// User.findByIdAndDelete(("67c866b64ded0a925ea72d27"))
+// .then( (res) => {console.log(res)} );
+
+// User.findOneAndDelete({name:"Casey"})
+// .then( (res) => {console.log(res)} ); 
